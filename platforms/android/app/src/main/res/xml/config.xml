@@ -7,9 +7,9 @@
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
-    <name>What To Do</name>
+    <name>Smart Pet Door</name>
     <description>
-        Minimal to-do list application
+        Smart Pet Door
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team

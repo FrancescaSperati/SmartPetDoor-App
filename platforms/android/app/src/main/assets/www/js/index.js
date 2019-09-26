@@ -16,15 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
-
-    login:function(){
-        alert("logged in");
     },
 
     // deviceready Event Handler
@@ -55,20 +50,17 @@ document.getElementById("cameraTakePicture").addEventListener
    ("click", cameraTakePicture); 
    
    function cameraTakePicture() { 
-    navigator.camera.getPicture(onSuccess, onFail, {  
-       quality: 50, 
-       destinationType: Camera.DestinationType.DATA_URL,
-       allowEdit: true,
-       correctOrientation: true 
-
-    });  
-    
-    function onSuccess(imageData) { 
-       var image = document.getElementById('myImage'); 
-       image.src = "data:image/jpeg;base64," + imageData; 
-    }  
-    
-    function onFail(message) { 
-       alert('Failed because: ' + message); 
-    } 
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+     });
+  
+     function onSuccess(imageURL) {
+        var image = document.getElementById('myImage');
+        image.src = imageURL;
+     }
+  
+     function onFail(message) {
+        alert('Failed because: ' + message);
+     }
  }

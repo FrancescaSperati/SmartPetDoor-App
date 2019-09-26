@@ -48,7 +48,11 @@ body{
 }
 .camera i:hover{
     cursor: pointer;
-    transform: rotate(45deg);
+}
+
+#myImage{
+    width: 420px;
+
 }
 
 #date{

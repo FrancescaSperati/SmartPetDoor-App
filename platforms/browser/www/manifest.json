@@ -1,10 +1,10 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "What To Do",
-  "short_name": "What To Do",
+  "name": "Smart Pet Door",
+  "short_name": "Smart Pet Door",
   "version": "io.cordova.hellocordova",
-  "description": "Minimal to-do list application",
+  "description": "Smart Pet Door",
   "author": "Apache Cordova Team",
   "icons": [
     {

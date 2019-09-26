@@ -34,87 +34,93 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-
-    <title>What To Do</title>
-
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Smart Pet Door</title>
 
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
 </head>
 
 <body>
-    <div class="app">
-        <div id="deviceready" class="">
-            <div class="limiter">
-                <div class="container-login100" style="background-image: url('images/test-bg1.png');">
-                    <div class="wrap-login100 p-t-190 p-b-30">
-                        <form class="login100-form validate-form">
-                            <div class="login100-form-avatar">
-                                <img src="images/wtd_logo-03.png" alt="">
-                            </div>
+    <div class="bkg-home">
+        <div style="height: 50px"></div>
+        <!--nav bar-->
+        <div class="d-flex justify-content-between mx-3">
+            <button class="btn-icon"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></button>
+            <button class="btn-icon"><i class="fa fa-home fa-lg" aria-hidden="true"></i></button>
+        </div>
 
-                            <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
-                                <input class="input100" type="text" id="username" name="username" placeholder="Username">
-                                <span class="focus-input100"></span>
-                                <span class="symbol-input100">
-                                    <i class="fa fa-user"></i>
-                                </span>
-                            </div>
+        <!--content-->
+        <div class="card">
+            <img class="card-img-top" src="./img/bkg4.png"
+                style="height: 320px; background-size: contain; background-position: center">
+            <div class="box">
+                <div class="img">
+                    <img src="./img/avatar-01.jpg">
+                </div>
+                <div class="card-title mt-3" style="color: #FFF">
+                    <h3> New Pet Found</h3>
+                    <p>Please select an action:</p>
+                </div>
+            </div>
 
-                            <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
-                                <input class="input100" type="password" id="password" name="pass" placeholder="Password">
-                                <span class="focus-input100"></span>
-                                <span class="symbol-input100">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </div>
 
-                            <div class="container-login100-form-btn p-t-10">
-                                <button class="login100-form-btn"><a href="todolist.html" style="color: #FFF; font-weight: bold">
-                                    Login    
-                                </a></button>
-                            </div>
+            <div class="card-body d-flex justify-content-around mb-3 mt-3">
+                <div class="text-center">
+                    <i class="fa fa-unlock fa-lg" id="btn-open" aria-hidden="true" style="color: #FF927E"></i></br>
+                    <a href="upload.html">Authorize</a>
+                </div>
 
-                            <div class="text-center w-full p-t-25 p-b-230">
-                                <a href="#" class="txt1">
-                                    Forgot Username / Password?
-                                </a>
-                            </div>
-
-                            
-
-                            
-                        </form>
-                    </div>
+                <div class="text-center">
+                    <i class="fa fa-lock fa-lg" id="btn-close" aria-hidden="true" style="color: #FF927E"></i></br>
+                    <a href="#">Deny</a>
                 </div>
             </div>
         </div>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/todolist.js"></script>
-
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery.mobile-1.4.5.js"></script>
-
-        <!--===============================================================================================-->
-        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-        <script src="vendor/bootstrap/js/popper.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="vendor/select2/select2.min.js"></script>
-        <script src="js/login.js"></script>
+        <!--bottom-->
+        <div class="info text-center mx-5">
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
+            <p style="font-size: 12px">Tap here to find out more about what each action will do</p>
+        </div>
+    </div>
 
 
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
 
 </body>
 
