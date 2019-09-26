@@ -20,22 +20,213 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    font-size:12px;
-    height:100vh;
-    margin:0px;
-    padding:0px;
-    /* Padding to avoid the "unsafe" areas behind notches in the screen */
-    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
-    text-transform:uppercase;
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+  }
+  
+  
+  /*//////////////////////////////////////////////////////////////////
+  [ RESTYLE TAG ]*/
+  
+  * {
+      margin: 0px; 
+      padding: 0px; 
+    box-sizing: border-box;
+  }
+  
+  body, html {
+      height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+  }
+  
+  /*---------------------------------------------*/
+  a {
+      font-family: Poppins-Regular;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666666 !important;
+      margin: 0px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+  
+  a:focus {
+      outline: none !important;
+  }
+  
+  a:hover {
+      text-decoration: none;
+    color: #6a7dfe;
+    color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+    color: -o-linear-gradient(left, #21d4fd, #b721ff);
+    color: -moz-linear-gradient(left, #21d4fd, #b721ff);
+    color: linear-gradient(left, #21d4fd, #b721ff);
+  }
+  
+  /*---------------------------------------------*/
+  h1,h2,h3,h4,h5,h6 {
+      margin: 0px;
+  }
+  
+  p {
+      font-family: Poppins-Regular;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666666;
+      margin: 0px;
+  }
+  
+  ul, li {
+      margin: 0px;
+      list-style-type: none;
+  }
+  /*---------------------------------------------*/
+  
+  .bkg-upload {
+    background-image: url("../img/bkg1.png");
+    background-size: cover;
+    height: 100%;
+  }
+  
+  .bkg-home {
+    background-image: url("../img/bkg2.png");
+    background-size: cover;
+    height: 100%;
+  }
+  
+  .card {
+    position:absolute;
+    top:35%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:300px;
+    min-height:350px;
+    background:#fff;
+    box-shadow:20px 20px 50px rgba(0,0,0,.2);
+    border-radius:20px !important;
+    transition:0.5s;
+  }
+  
+  .card-img-top {
+    border-radius:20px 20px 0px 0px !important;
+    height: 250px;
+  }
+  
+  .card .box {
+    position:absolute;
+    top:40%;
+    left:0;
+    transform:translateY(-50%);
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
     width:100%;
-}
+  }
+  .card .box .img {
+    width:180px;
+    height:180px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+    border: #fff solid 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .card .box .img img {
+    width:100%;
+    height:100%;
+  }
+  
+  
+  /*---------------------------------------------*/
+  button {
+      outline: none !important;
+      border: none;
+      background: transparent;
+  }
+  
+  button:hover {
+      cursor: pointer;
+  }
+  
+  iframe {
+      border: none !important;
+  }
+  
+  
+  /*//////////////////////////////////////////////////////////////////
+  [ Utility ]*/
+  .txt1 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+  }
+  
+  .txt2 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #333333;
+    line-height: 1.5;
+  }
+  
+  /*//////////////////////////////////////////////////////////////////
+  [ login ]*/
+  
+  
+  .limiter {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  
+  /*------------------------------------------------------------------
+  [ Button ]*/
+  
+  .btn-text {
+    color: #fff;
+    background: #FF927E;
+    padding: 10px 30px;
+    border-radius: 25px;
+    
+  }
+  
+  .btn-icon {
+    color: #FF927E;
+    background: #FFF;
+    box-shadow:20px 20px 50px rgba(0,0,0,.2);
+    padding: 16px 16px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+  
+  .info {
+    position: absolute;
+    top: 80%;
+  }
+  
+  
 
 /* Portrait layout (default) */
 .app {
