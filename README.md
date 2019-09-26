@@ -1,3 +1,3 @@
-# WhatToDo
+# SmartPetDoor-App
 
-To-do list mobile application
+The mobile application that connects with the Smart Pet Door, TBC
