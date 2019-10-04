@@ -3,7 +3,7 @@
   "display": "standalone",
   "name": "Smart Pet Door",
   "short_name": "Smart Pet Door",
-  "version": "io.cordova.hellocordova",
+  "version": "io.cordova.smartdoorapp",
   "description": "Smart Pet Door",
   "author": "Apache Cordova Team",
   "icons": [

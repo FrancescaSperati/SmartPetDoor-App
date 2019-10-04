@@ -1,4 +1,10 @@
 {
+  "_args": [
+    [
+      "cordova-plugin-camera@4.1.0",
+      "/Volumes/Drive/SmartD/SmartPetDoor-App"
+    ]
+  ],
   "_from": "cordova-plugin-camera@4.1.0",
   "_id": "cordova-plugin-camera@4.1.0",
   "_inBundle": false,
@@ -16,20 +22,17 @@
     "fetchSpec": "4.1.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-camera/-/cordova-plugin-camera-4.1.0.tgz",
-  "_shasum": "6474a3e080c4662aa00fd7425705d301c693ddc0",
-  "_spec": "cordova-plugin-camera@4.1.0",
-  "_where": "/Users/charliechiu/Desktop/AIT/CrossPlatform/whatToDo",
+  "_spec": "4.1.0",
+  "_where": "/Volumes/Drive/SmartD/SmartPetDoor-App",
   "author": {
     "name": "Apache Software Foundation"
   },
   "bugs": {
     "url": "https://github.com/apache/cordova-plugin-camera/issues"
   },
-  "bundleDependencies": false,
   "cordova": {
     "id": "cordova-plugin-camera",
     "platforms": [
@@ -40,7 +43,6 @@
       "osx"
     ]
   },
-  "deprecated": false,
   "description": "Cordova Camera Plugin",
   "devDependencies": {
     "eslint": "^4.3.0",

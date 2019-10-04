@@ -29,8 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com ws: 'unsafe-inline'; style-src * 'unsafe-inline' 'self' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval' data: blob:; img-src * data: 'unsafe-inline' 'self' content:; media-src mediastream;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -42,85 +41,137 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
 </head>
 
 <body>
-    <div class="bkg-home">
-        <div style="height: 20px"></div>
-        <!--nav bar-->
-        <div class="d-flex justify-content-between mx-3">
-            <button class="btn-icon"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></button>
-            <button class="btn-icon"><i class="fa fa-home fa-lg" aria-hidden="true"></i></button>
-        </div>
+
+    <div class="bkg-home sectionpage" id="home-nopet" style="display: none;">
+        <div style="height: 60px"></div>
 
         <!--content-->
         <div class="card">
-            <img class="card-img-top" src="./img/bkg4.png"
-                style="height: 320px; background-size: contain; background-position: center">
+            <img class="card-img-top" src="./img/bkg4.png" style="height: 320px; background-size: contain; background-position: center">
             <div class="box">
                 <div class="img">
-                    <img src="./img/avatar-01.jpg">
                 </div>
                 <div class="card-title mt-3" style="color: #FFF">
-                    <h3> New Pet Found</h3>
-                    <p>Please select an action:</p>
-                </div>
-            </div>
-
-
-            <div class="card-body d-flex justify-content-around mb-2 mt-2">
-                <div class="text-center">
-                    <i class="fa fa-unlock fa-lg" id="btn-open" aria-hidden="true" style="color: #FF927E"></i></br>
-                    <a href="upload.html">Authorize</a>
-                </div>
-
-                <div class="text-center">
-                    <i class="fa fa-lock fa-lg" id="btn-close" aria-hidden="true" style="color: #FF927E"></i></br>
-                    <a href="#">Deny</a>
+                    <h3>No pets at your door</h3>
+                    <p>All good so far!</p>
                 </div>
             </div>
         </div>
 
         <!--bottom-->
         <div class="info text-center mx-5">
-            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
-            <p style="font-size: 12px">Tap here to find out more about what each action will do</p>
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
         </div>
     </div>
 
+    <div class="bkg-home sectionpage" id="home-pet" style="display: none;">
+            <div style="height: 60px"></div>
+    
+            <!--content-->
+            <div class="card">
+                <img class="card-img-top" src="./img/bkg4.png" style="height: 320px; background-size: contain; background-position: center">
+                <div class="box">
+                    <div class="img">
+                        <img id="pendingpet-img">
+                    </div>
+                    <div class="card-title mt-3" style="color: #FFF">
+                        <h3>New Pet at the door!</h3>
+                        <p>Please select an action:</p>
+                    </div>
+                </div>
+                <div class="card-body d-flex justify-content-around mb-2 mt-2">
+                    <div class="text-center">
+                        <button class="btn-link mb-3" id="unlockAndGoToUpload" style="color: #FF927E"><i class="fa fa-unlock fa-lg" aria-hidden="true"></i><br>Authorize</button><br>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn-link mb-3" id="denyPet" style="color: #FF927E"><i class="fa fa-lock fa-lg" aria-hidden="true"></i><br>Deny</button><br>
+                    </div>
+                </div>
+            </div>
+    
+            <!--bottom-->
+            <div class="info text-center mx-5">
+                <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+                <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
+            </div>
+    </div>
+
+    <div class="bkg-upload sectionpage" id="upload-pet" style="display: none;">
+        <div style="height: 60px"></div>
+
+        <!--content-->
+        <div class="mx-4">
+            <h4 class="mt-4 mb-3" style="color: #FF927E">Door open!</h4>
+            <h5 class="mt-4 mb-3" style="color: #FF927E">Now, upload pictures of your pet</h5>
+            <p>So I learn your pet and I'll open the door automatically next time! <span class="upload-example">For example:</span>
+            </p>
+            <div class="text-center">
+                <img src="./img/dog-upload.png" class="upload-example text-center mt-3 mb-3"><br>
+                <div id="upload-pictures"></div>
+                <button class="btn-text mb-3" id="cameraTakePicture"><i class="fa fa-file-image-o" aria-hidden="true"></i> Select from Album</button><br>
+                <button class="btn-text mb-3" id="startUpload" style="display: none;"><i class="fa fa-upload" aria-hidden="true"></i> Upload!</button><br>
+            </div>
+        </div>
+
+        <!--bottom-->
+        <div class="info text-center mx-5">
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
+        </div>
+
+    </div>
+
+    <div class="bkg-upload sectionpage" id="upload-success" style="display: none;">
+        <div style="height: 60px"></div>
+
+        <!--content-->
+        <div class="mx-4">
+            <h4 class="mt-4 mb-3" style="color: #FF927E">Door Open and Upload Success</h4>
+            <p></p>
+            <div class="text-center">
+                <button class="btn-text mb-3" id="thanksBackToHome"><i class="fa fa-file-image-o" aria-hidden="true"></i> Back</button><br>
+            </div>
+        </div>
+        <!--bottom-->
+        <div class="info text-center mx-5">
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
+        </div>
+    </div>
+
+    <div class="bkg-upload sectionpage" id="error" style="display: none;">
+        <div style="height: 60px"></div>
+        <!--content-->
+        <div class="mx-4">
+            <h4 class="mt-4 mb-3" style="color: #FF927E">Error...</h4>
+            <p id="errortext"></p>
+            <div class="text-center">
+                <button class="btn-text mb-3" id="errorBackToHome"><i class="fa fa-file-image-o" aria-hidden="true"></i> Back</button><br>
+            </div>
+        </div>
+
+        <!--bottom-->
+        <div class="info text-center mx-5">
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
+        </div>
+    </div>
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/bootstrap/js/popper.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
+    <script type="text/javascript" src="js/index.js"></script>
 
 </body>
 
