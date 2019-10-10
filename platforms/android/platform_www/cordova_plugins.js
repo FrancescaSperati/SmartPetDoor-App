@@ -1,11 +1,11 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-firebasex.FirebasePlugin",
-      "file": "plugins/cordova-plugin-firebasex/www/firebase.js",
-      "pluginId": "cordova-plugin-firebasex",
+      "id": "com-badrit-base64.Base64",
+      "file": "plugins/com-badrit-base64/www/Base64.js",
+      "pluginId": "com-badrit-base64",
       "clobbers": [
-        "FirebasePlugin"
+        "navigator.Base64"
       ]
     },
     {
@@ -46,14 +46,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-device",
       "clobbers": [
         "device"
-      ]
-    },
-    {
-      "id": "cordova-plugin-image-picker.ImagePicker",
-      "file": "plugins/cordova-plugin-image-picker/www/imagepicker.js",
-      "pluginId": "cordova-plugin-image-picker",
-      "clobbers": [
-        "plugins.imagePicker"
       ]
     },
     {
@@ -230,24 +222,48 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "com-badrit-base64.Base64",
-      "file": "plugins/com-badrit-base64/www/Base64.js",
-      "pluginId": "com-badrit-base64",
+      "id": "cordova-plugin-image-picker.ImagePicker",
+      "file": "plugins/cordova-plugin-image-picker/www/imagepicker.js",
+      "pluginId": "cordova-plugin-image-picker",
       "clobbers": [
-        "navigator.Base64"
+        "plugins.imagePicker"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification",
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification_android",
+      "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-firebasex.FirebasePlugin",
+      "file": "plugins/cordova-plugin-firebasex/www/firebase.js",
+      "pluginId": "cordova-plugin-firebasex",
+      "clobbers": [
+        "FirebasePlugin"
       ]
     }
   ];
   module.exports.metadata = {
+    "com-badrit-base64": "0.2.0",
     "cordova-plugin-androidx": "1.0.2",
     "cordova-plugin-androidx-adapter": "1.1.0",
-    "cordova-plugin-firebasex": "6.1.0",
-    "cordova-plugin-whitelist": "1.3.4",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-device": "2.0.3",
-    "cordova-plugin-image-picker": "1.1.1",
     "cordova-plugin-file": "6.0.2",
-    "cordova-plugin-browsersync": "0.1.7",
-    "com-badrit-base64": "0.2.0"
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-image-picker": "1.1.1",
+    "cordova-plugin-dialogs": "2.0.2",
+    "cordova-plugin-firebasex": "6.1.0"
   };
 });

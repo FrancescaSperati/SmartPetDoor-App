@@ -29,7 +29,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com ws: 'unsafe-inline'; style-src * 'unsafe-inline' 'self' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval' data: blob:; img-src * data: 'unsafe-inline' 'self' content:; media-src mediastream;">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: 'unsafe-inline' https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;media-src mediastream;">
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -47,13 +48,15 @@
 </head>
 
 <body>
+    <div id="loading" style="display: none;"></div>
 
     <div class="bkg-home sectionpage" id="home-nopet" style="display: none;">
         <div style="height: 60px"></div>
 
         <!--content-->
         <div class="card">
-            <img class="card-img-top" src="./img/bkg4.png" style="height: 320px; background-size: contain; background-position: center">
+            <img class="card-img-top" src="./img/bkg4.png"
+                style="height: 320px; background-size: contain; background-position: center">
             <div class="box">
                 <div class="img">
                 </div>
@@ -66,7 +69,7 @@
 
         <!--bottom-->
         <div class="info text-center mx-5">
-            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
             <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
         </div>
     </div>
@@ -76,7 +79,8 @@
     
             <!--content-->
             <div class="card">
-                <img class="card-img-top" src="./img/bkg4.png" style="height: 320px; background-size: contain; background-position: center">
+                <img class="card-img-top" src="./img/bkg4.png"
+                    style="height: 320px; background-size: contain; background-position: center">
                 <div class="box">
                     <div class="img">
                         <img id="pendingpet-img">
@@ -88,17 +92,17 @@
                 </div>
                 <div class="card-body d-flex justify-content-around mb-2 mt-2">
                     <div class="text-center">
-                        <button class="btn-link mb-3" id="unlockAndGoToUpload" style="color: #FF927E"><i class="fa fa-unlock fa-lg" aria-hidden="true"></i><br>Authorize</button><br>
+                        <button class="btn-link mb-3" id="unlockAndGoToUpload" style="color: #FF927E"><i class="fa fa-unlock fa-lg" aria-hidden="true"></i></br>Authorize</button></br>
                     </div>
                     <div class="text-center">
-                        <button class="btn-link mb-3" id="denyPet" style="color: #FF927E"><i class="fa fa-lock fa-lg" aria-hidden="true"></i><br>Deny</button><br>
+                        <button class="btn-link mb-3" id="denyPet" style="color: #FF927E"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></br>Deny</button></br>
                     </div>
                 </div>
             </div>
     
             <!--bottom-->
             <div class="info text-center mx-5">
-                <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+                <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
                 <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
             </div>
     </div>
@@ -113,16 +117,16 @@
             <p>So I learn your pet and I'll open the door automatically next time! <span class="upload-example">For example:</span>
             </p>
             <div class="text-center">
-                <img src="./img/dog-upload.png" class="upload-example text-center mt-3 mb-3"><br>
+                <br></br>
                 <div id="upload-pictures"></div>
-                <button class="btn-text mb-3" id="cameraTakePicture"><i class="fa fa-file-image-o" aria-hidden="true"></i> Select from Album</button><br>
-                <button class="btn-text mb-3" id="startUpload" style="display: none;"><i class="fa fa-upload" aria-hidden="true"></i> Upload!</button><br>
+                <button class="btn-text mb-3" id="cameraTakePicture"><i class="fa fa-file-image-o" aria-hidden="true"></i> Select from Album</button></br>
+                <button class="btn-text mb-3" id="startUpload" style="display: none;"><i class="fa fa-upload" aria-hidden="true"></i> Upload!</button></br>
             </div>
         </div>
 
         <!--bottom-->
         <div class="info text-center mx-5">
-            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
             <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
         </div>
 
@@ -136,12 +140,12 @@
             <h4 class="mt-4 mb-3" style="color: #FF927E">Door Open and Upload Success</h4>
             <p></p>
             <div class="text-center">
-                <button class="btn-text mb-3" id="thanksBackToHome"><i class="fa fa-file-image-o" aria-hidden="true"></i> Back</button><br>
+                <button class="btn-text mb-3" id="thanksBackToHome"><i class="fa fa-file-image-o" aria-hidden="true"></i> Back</button></br>
             </div>
         </div>
         <!--bottom-->
         <div class="info text-center mx-5">
-            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
             <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
         </div>
     </div>
@@ -153,14 +157,14 @@
             <h4 class="mt-4 mb-3" style="color: #FF927E">Error...</h4>
             <p id="errortext"></p>
             <div class="text-center">
-                <button class="btn-text mb-3" id="errorBackToHome"><i class="fa fa-file-image-o" aria-hidden="true"></i> Back</button><br>
+                <button class="btn-text mb-3" id="errorBackToHome"><i class="fa fa-file-image-o" aria-hidden="true"></i> Back</button></br>
             </div>
         </div>
 
         <!--bottom-->
         <div class="info text-center mx-5">
-            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i><br>
-            <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
+            <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
+            <p style="font-size: 12px">A project of<br>Francesca Sperati &amp; Charlie Chiu</p>
         </div>
     </div>
 

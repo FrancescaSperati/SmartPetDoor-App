@@ -7,13 +7,7 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-firebasex": {
-      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
-      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
-      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
-      "PACKAGE_NAME": "io.cordova.smartdoorapp"
-    },
-    "cordova-plugin-whitelist": {
+    "com-badrit-base64": {
       "PACKAGE_NAME": "io.cordova.smartdoorapp"
     },
     "cordova-plugin-camera": {
@@ -22,25 +16,30 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.cordova.smartdoorapp"
     },
-    "cordova-plugin-image-picker": {
-      "PACKAGE_NAME": "io.cordova.smartdoorapp"
-    },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "io.cordova.smartdoorapp"
     },
-    "cordova-plugin-browsersync": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.smartdoorapp"
     },
-    "com-badrit-base64": {
-      "PACKAGE_NAME": "io.cordova.smartdoorapp"
-    }
-  },
-  "dependent_plugins": {
     "cordova-plugin-androidx": {
       "PACKAGE_NAME": "io.cordova.smartdoorapp"
     },
     "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.cordova.smartdoorapp"
+    },
+    "cordova-plugin-image-picker": {
+      "PACKAGE_NAME": "io.cordova.smartdoorapp"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "io.cordova.smartdoorapp"
+    },
+    "cordova-plugin-firebasex": {
+      "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
+      "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
+      "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+      "PACKAGE_NAME": "io.cordova.smartdoorapp"
     }
-  }
+  },
+  "dependent_plugins": {}
 }

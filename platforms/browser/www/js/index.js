@@ -7,6 +7,7 @@ var imagesUploaded = 0;
 function onDeviceReady() {
 
     if(typeof window.FirebasePlugin !== "undefined"){
+        console.log("firebase");
         window.FirebasePlugin.subscribe("newpet");
         window.FirebasePlugin.getToken(function(token) {
             console.log(token);
@@ -18,8 +19,10 @@ function onDeviceReady() {
                 text: "Hey hey, that's a new App installed, and this is the token for push me notifications directly: " + token
             }));
         }, function(error) {
-            console.error(error);
+            console.log(error);
         });    
+    } else {
+        console.log("NO firebase"); 
     }
     
     checkPendingPets();
@@ -38,7 +41,6 @@ function onDeviceReady() {
 function checkPendingPets() {
     $('.sectionpage').hide();
     $.getJSON("http://35.244.89.241/pendingpet.php", function(data) {
-        console.log(data);
         if(data.length > 0){
             $('#home-pet').show();
             pendingPetId = data[0].id;
@@ -47,7 +49,7 @@ function checkPendingPets() {
             $('#home-nopet').show();
         }
     }).fail(function(error) {
-        console.error(error);
+        console.log(error);
         $('#home-nopet').show();
     });
 }
@@ -57,13 +59,13 @@ function unlockAndGoToUpload() {
     $.getJSON("http://35.244.89.241/opendoor.php", function(data) {
         console.log(data);
     }).fail(function(error) {
-        console.error(error);
+        console.log(error);
     });
 
     $.getJSON("http://35.244.89.241/deletependingpet.php?filename=" + pendingPetId, function(data) {
         console.log(data);
     }).fail(function(error) {
-        console.error(error);
+        console.log(error);
     });
 
     $('.sectionpage').hide();
@@ -75,7 +77,7 @@ function denyPet() {
     $.getJSON("http://35.244.89.241/deletependingpet.php?filename=" + pendingPetId, function(data) {
         console.log(data);
     }).fail(function(error) {
-        console.error(error);
+        console.log(error);
     });
 
     checkPendingPets();
@@ -124,7 +126,7 @@ function cameraTakePicture() {
             }
 
         }, function (error) {
-            console.error(error);
+            console.log(error);
         }, {
             width: 800,
             quality: 80
@@ -142,8 +144,10 @@ function startUpload(){
     );
 }
 
-function uploadImages(results) {   
+function uploadImages(results) { 
     if(results.input1.length > 0){
+        $("#loading").show();
+
         newPetName = results.input1.replace(/\s/g,'');
 
         for (var i = 0; i < newPetImages.length; i++) {
@@ -159,7 +163,7 @@ function uploadImages(results) {
                 });
     
             }, function(error){
-                console.error(error);
+                console.log(error);
             });
         }
 
@@ -173,6 +177,7 @@ function checkUploadComplete() {
     if(imagesUploaded < newPetImages.length) return;
     if(imagesUploaded == newPetImages.length){
         startRetrain();
+        $("#loading").hide();
         imagesUploaded = 0;
         newPetImages = [];
         $('.upload-example').show();
@@ -186,7 +191,7 @@ function startRetrain() {
     $.getJSON("http://35.244.89.241/startretrain.php", function(data) {
         console.log(data);
     }).fail(function(error) {
-        console.error(error);
+        console.log(error);
     });
 }
 

@@ -29,7 +29,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;media-src mediastream;">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: 'unsafe-inline' https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;media-src mediastream;">
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -47,6 +48,7 @@
 </head>
 
 <body>
+    <div id="loading" style="display: none;"></div>
 
     <div class="bkg-home sectionpage" id="home-nopet" style="display: none;">
         <div style="height: 60px"></div>
@@ -115,7 +117,7 @@
             <p>So I learn your pet and I'll open the door automatically next time! <span class="upload-example">For example:</span>
             </p>
             <div class="text-center">
-                <img src="./img/dog-upload.png" class="upload-example text-center mt-3 mb-3"></br>
+                <br></br>
                 <div id="upload-pictures"></div>
                 <button class="btn-text mb-3" id="cameraTakePicture"><i class="fa fa-file-image-o" aria-hidden="true"></i> Select from Album</button></br>
                 <button class="btn-text mb-3" id="startUpload" style="display: none;"><i class="fa fa-upload" aria-hidden="true"></i> Upload!</button></br>
@@ -162,7 +164,7 @@
         <!--bottom-->
         <div class="info text-center mx-5">
             <i class="fa fa-info-circle fa-lg" style="color: #FF927E" aria-hidden="true"></i></br>
-            <p style="font-size: 12px">A project of Francesca Sperati &amp; Charlie Chiu</p>
+            <p style="font-size: 12px">A project of<br>Francesca Sperati &amp; Charlie Chiu</p>
         </div>
     </div>
 
