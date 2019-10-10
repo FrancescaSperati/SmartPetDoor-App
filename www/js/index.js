@@ -122,6 +122,7 @@ function cameraTakePicture() {
             console.log(error);
         }, {
             width: 800,
+            maximumImagesCount: 30,
             quality: 80
         }
     );
@@ -144,16 +145,33 @@ function uploadImages(results) {
         newPetName = results.input1.replace(/\s/g,'');
 
         for (var i = 0; i < newPetImages.length; i++) {
-            window.plugins.Base64.encodeFile(newPetImages[i], function(base64image) {
-    
-                $.ajax({
-                    type: "POST",
-                    url: "http://35.244.89.241/newpet.php",
-                    data: { petname: newPetName, petimage: base64image }
-                }).done(function() {
+            window.plugins.Base64.encodeFile(newPetImages[i], async function(base64image) {
+
+                const settings = {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ petname: newPetName, petimage: base64image })
+                };
+
+                try {
+                    await fetch("http://35.244.89.241/newpet.php", settings);
                     imagesUploaded++;
                     checkUploadComplete();
-                });
+                } catch (e) {
+                    console.log(e);
+                } 
+    
+                // $.ajax({
+                //     type: "POST",
+                //     url: "http://35.244.89.241/newpet.php",
+                //     data: { petname: newPetName, petimage: base64image }
+                // }).done(function() {
+                //     imagesUploaded++;
+                //     checkUploadComplete();
+                // });
     
             }, function(error){
                 console.log(error);
