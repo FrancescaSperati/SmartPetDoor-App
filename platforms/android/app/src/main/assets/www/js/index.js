@@ -147,22 +147,19 @@ function uploadImages(results) {
         for (var i = 0; i < newPetImages.length; i++) {
             window.plugins.Base64.encodeFile(newPetImages[i], async function(base64image) {
 
-                const settings = {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ petname: newPetName, petimage: base64image })
-                };
-
                 try {
-                    await fetch("http://35.244.89.241/newpet.php", settings);
-                    imagesUploaded++;
-                    checkUploadComplete();
+                    await $.ajax({
+                        type: "POST",
+                        url: "http://35.244.89.241/newpet.php",
+                        data: { petname: newPetName, petimage: base64image }
+                    });
+                    
                 } catch (e) {
                     console.log(e);
-                } 
+                }
+
+                imagesUploaded++;
+                checkUploadComplete();
     
                 // $.ajax({
                 //     type: "POST",
@@ -185,6 +182,8 @@ function uploadImages(results) {
 }
 
 function checkUploadComplete() {
+    console.log(imagesUploaded);
+    console.log(newPetImages.length);
     if(imagesUploaded < newPetImages.length) return;
     if(imagesUploaded == newPetImages.length){
         startRetrain();
