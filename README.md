@@ -21,3 +21,8 @@ when the user choose "Authorize", the server is triggered to open the door, and 
   shows a successful message "Door Open and Upload Success"
 - error
   just an error page, with a "Back" button
+
+
+
+All code of this repository is property and copyright of Francesca Sperati and Charlie Chiu, 
+Licence is proprietary and all rights are reserved
